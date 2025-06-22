@@ -1,0 +1,46 @@
+<div class="container py-5 d-flex justify-content-center">
+  <div
+    class="card shadow-lg border-0"
+    style="max-width: 800px; width: 100%; border-radius: 15px; background: #fdfdfd;"
+  >
+
+    <img
+      src="{{post.image}}"
+      class="card-img"
+      alt="{{post.title}}"
+      style="max-height: 400px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;"
+    />
+
+    <div class="card-body p-4">
+
+      <h2
+        class="card-title mb-3 fw-bold"
+        style="font-family: 'Segoe UI', sans-serif; color: #333;"
+      >
+        {{post.title}}
+      </h2>
+
+      <span
+        class="badge bg-secondary mb-3"
+        style="font-size: 0.9rem;"
+      >{{post.category}}</span>
+
+      <p
+        class="card-text text-dark"
+        style="font-size: 1.1rem; line-height: 1.7; white-space: pre-wrap;"
+      >
+        {{{post.summary}}}
+      </p>
+
+      <div class="text-end mt-4">
+        <a
+          href="/"
+          class="btn btn-outline-primary px-4 py-2 fw-semibold"
+          style="border-radius: 30px; transition: 0.3s; box-shadow: 0 0 10px rgba(0,0,0,0.1);"
+        >
+          ⬅ Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

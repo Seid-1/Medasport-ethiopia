@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">🎥 Match Highlights</h2>
+  <div class="row">
+    {{#each highlights}}
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg h-100">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="{{this.youtube_link}}"
+              title="{{this.title}}"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <p class="text-muted" style="font-size: 0.9em;">
+              📅
+              {{this.created_at}}
+            </p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

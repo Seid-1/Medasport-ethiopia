@@ -1,0 +1,103 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+<div class="card shadow-lg border-0 rounded-4 p-5 bg-light animate__animated animate__fadeInDown">
+  <div class="container text-center">
+    <h1 class="fw-bold animate__animated animate__zoomIn animate__delay-1s  display-6 display-md-5">
+      Welcome to <span style="white-space: nowrap;"><span class="text-primary">MedaSport</span> 🇪🇹</span>
+    </h1>
+    <p class="lead animate__animated animate__fadeInUp animate__delay-2s">
+      <strong class="text-dark">
+        Trusted football news across all leagues, clubs, and continents ⚽🌍
+      </strong>
+    </p>
+  </div>
+</div>
+
+    <div class="container my-5">
+      <div class="mx-auto" style="max-width: 1140px;">
+   
+        <div id="featuredNewsCarousel" class="carousel slide shadow-lg" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-4 overflow-hidden">
+            {{#each featuredPosts}}
+              <div class="carousel-item {{#if @first}}active{{/if}}">
+                <img
+                  src="{{this.image}}"
+                  class="d-block w-100 img-fluid"
+                  style="height: 500px; object-fit: cover;"
+                  alt="{{this.title}}"
+                />
+                <div class="carousel-caption d-none d-md-block bg-danger bg-opacity-50 rounded-3 px-3 py-2" style="max-width: 70%; bottom: 30px;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-warning text-dark fw-bold px-3 py-2" style="font-size: 0.9rem;">
+                      🚨 Breaking News
+                    </span>
+                    <span class="text-white-50 small">Breaking News</span>
+                  </div>
+                  <h5 class="fw-bold text-white fs-4 mb-1">{{this.title}}</h5>
+                  <a href="/news/{{this.id}}" class="btn btn-sm btn-light fw-semibold">Read Full Story</a>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#featuredNewsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#featuredNewsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <h2 class="text-center my-4 fw-bold">⚽ More News ⚽</h2>
+        <hr class="w-25 mx-auto">
+
+   <div class="row">
+  {{#each olderPosts}}
+   <div class="col-md-4 mb-4">
+  <div class="card h-100 d-flex flex-column">
+    <img src="{{this.image}}" class="card-img-top" alt="...">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{{this.title}}</h5>
+      <p class="card-text">{{truncate this.summary 100}}</p>
+      <div class="mt-auto">
+        <a href="/news/{{this.id}}" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {{/each}}
+</div>
+
+{{#if totalPages}}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {{#if (gt currentPage 1)}}
+        <li class="page-item">
+          <a class="page-link" href="/?page={{subtract currentPage 1}}">Previous</a>
+        </li>
+      {{/if}}
+
+      {{#each (createPagination totalPages currentPage)}}
+        <li class="page-item {{#if (eq this ../currentPage)}}active{{/if}}">
+          <a class="page-link" href="/?page={{this}}">{{this}}</a>
+        </li>
+      {{/each}}
+
+      {{#if (lt currentPage totalPages)}}
+        <li class="page-item">
+          <a class="page-link" href="/?page={{add currentPage 1}}">Next</a>
+        </li>
+      {{/if}}
+    </ul>
+  </nav>
+{{/if}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add Match Highlight</h2>
+  <form
+    action="/admin/highlights"
+    method="POST"
+    class="card p-4 shadow-lg bg-light rounded-4"
+  >
+    <div class="mb-3">
+      <label for="title" class="form-label">Match Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="youtube_link" class="form-label">YouTube Embed Link</label>
+      <input
+        type="text"
+        class="form-control"
+        id="youtube_link"
+        name="youtube_link"
+        placeholder="e.g. https://www.youtube.com/embed/VIDEO_ID"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        name="description"
+        rows="4"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Upload Highlight</button>
+  </form>
+</div>
