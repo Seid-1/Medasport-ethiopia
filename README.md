@@ -40,7 +40,7 @@ Telegram : t.me/S_ei_d1
 
 Tel : +251977711666
 
-Email : seidnur047@gmil.com
+Email : seidnur047@gmail.com
 
 
 
