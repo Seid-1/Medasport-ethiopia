@@ -42,5 +42,9 @@ There are two admin panels:
 
 - Email : seidnur047@gmail.com
 
+- Linkedin : linkedin.com/in/seid-nur-670029334
+
+- Github : github.com/Seid-1
+
 
 
