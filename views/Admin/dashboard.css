@@ -20,8 +20,3 @@ body {
   background-color: #fff;
   border-left: 1px solid #dee2e6;
 }
-.custom-container {
-  max-width: 1140px; /* You can tweak this as needed */
-  margin: 0 auto;
-  padding: 0 15px;
-}
