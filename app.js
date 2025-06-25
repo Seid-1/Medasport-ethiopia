@@ -482,11 +482,21 @@ let db;
       }
     }
 
-    app.get("/admin/highlights", checkAdminhighlight, (req, res) => {
-      res.render("Admin/Highlights", {
-        title: "Admin Highlights",
-        activePage: "admin/highlights",
-      });
+    app.get("/admin/highlights", checkAdminhighlight, async (req, res) => {
+      try {
+        const [highlights] = await db.query(
+          "SELECT * FROM match_highlights ORDER BY created_at DESC LIMIT 5"
+        );
+
+        res.render("Admin/Highlights", {
+          title: "Admin Highlights",
+          activePage: "admin/highlights",
+          highlights,
+        });
+      } catch (err) {
+        console.error("Error loading highlights:", err);
+        res.status(500).send("Failed to load highlights.");
+      }
     });
 
     app.post("/admin/highlights", checkAdminhighlight, async (req, res) => {
@@ -501,6 +511,23 @@ let db;
         res.send("❌ Failed to upload highlight.");
       }
     });
+
+    app.post(
+      "/admin/highlights/delete/:id",
+      checkAdminhighlight,
+      async (req, res) => {
+        const highlightId = req.params.id;
+        try {
+          await db.query("DELETE FROM match_highlights WHERE id = ?", [
+            highlightId,
+          ]);
+          res.redirect("/admin/highlights");
+        } catch (err) {
+          console.error("Error deleting highlight:", err);
+          res.status(500).send("Error deleting highlight.");
+        }
+      }
+    );
 
     app.get("/admin/logout", (req, res) => {
       req.session.destroy(() => {
