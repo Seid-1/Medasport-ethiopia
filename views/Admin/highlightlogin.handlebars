@@ -1,44 +1,21 @@
-<link rel="stylesheet" href="dashboard.css" />
-<div
-  class="container-fluid d-flex justify-content-center align-items-center min-vh-100 bg-light"
->
-  <div class="custom-container">
-    <div class="mx-auto" style="max-width: 400px;">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h3 class="mb-4 text-center">Admin Login</h3>
+<div class="container mt-5" style="max-width: 400px;">
+  <h3 class="mb-4">Admin Login</h3>
 
-          {{#if error}}
-            <div class="alert alert-danger">{{error}}</div>
-          {{/if}}
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
 
-          <form action="/adminhighlight/login" method="POST">
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input
-                type="text"
-                class="form-control"
-                name="username"
-                required
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                name="password"
-                required
-              />
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100">
-              🔐 Login
-            </button>
-          </form>
-        </div>
-      </div>
+  <form action="/adminhighlight/login" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" name="username" required />
     </div>
-  </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
 </div>
