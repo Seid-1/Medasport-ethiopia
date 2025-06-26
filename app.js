@@ -442,7 +442,7 @@ let db;
 
         if (results.length === 0)
           return res.status(404).send("Post not found.");
-        res.render("Admin/editPost", { post: results[0] });
+        res.render("Admin/editpost", { post: results[0] });
       } catch (err) {
         console.error("Error fetching post:", err);
         res.status(500).send("Error loading post for editing.");
